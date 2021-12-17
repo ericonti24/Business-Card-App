@@ -1,0 +1,2 @@
+class BusinessCardsController < ApplicationController
+end
