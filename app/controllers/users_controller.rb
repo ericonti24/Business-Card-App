@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 
     def show 
         require_login
-        @user = User.find_by(params[:id])
+        # binding.pry
+        @user = User.find_by(id: params[:id])
         redirect_to '/' if !@user
     end
 
