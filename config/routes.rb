@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
 
+  # get '/business_cards_new' => 'business_cards#new'
+  # post '/business_cards' => 'business_cards#create'
+  # get '/business_card' => 'business_cards#show'
+
   resources :business_cards
   resources :categories
   resources :users

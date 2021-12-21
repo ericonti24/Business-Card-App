@@ -1,2 +1,22 @@
 <h1> Business Cards Users Show <%=@user.username%> </h1>
-<%= link_to "Create Business Card", '/business_cards_new' %>
+<%= link_to "Create Business Card", new_business_card_path %>
+
+<h2>Your Business Cards:</h2>
+<% @user.business_cards.each do |b| %>
+    <%= b.category.name %> 
+    <br>
+    <%= b.name %> 
+    <br>
+    <%= b.email %>
+    <br>
+    <%= b.web_site %> 
+    <br> 
+    <%= b.phone_number %>
+    <br>
+    <%= link_to "Edit Card", edit_business_card_path(b.id) if b.user_id == session[:user_id] %> 
+    <br>
+    <%= link_to "Delete Card", business_card_path(b), :confirm => "Are you sure?", :method => :delete if b.user_id == session[:user_id] %>
+
+
+<%end%> 
+

@@ -1,0 +1,30 @@
+<p>Select a Category </p>
+<%= form_for(@business_card) do |f|%> 
+    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Select Category' %>  
+
+    <p>OR Add A New Category:</p>
+      <%= f.fields_for :category do |m| %>
+          <%= m.text_field :name %>
+      <datalist id="category_name">
+          <% Category.all.each do |c| %>
+         <option value = "<%= c.name %>"  ></option>
+          <% end %>
+      </datalist>
+      <br>
+      <% end %>
+
+    <br></br>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br></br>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <br></br>
+  <%= f.label :web_site %>
+  <%= f.text_field :web_site %>
+  <br></br>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+  <br></br>
+  <%= f.submit "Submit" %>
+<% end %>
