@@ -12,9 +12,11 @@
 
   <body>
 
-    <% if logged_in? %>
-      <%= render partial: 'layouts/nav_bar' %>
-    <% end %>
+    <%# <% if logged_in? %>
+      <%# <%= render partial: 'layouts/nav_bar' %>
+    <%# <% end %> 
+
+    <div><%= render_nav_bar %></div>
 
     <%= yield %>
   </body>

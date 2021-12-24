@@ -26,9 +26,6 @@ class BusinessCardsController < ApplicationController
     end
 
     def edit 
-        # if session[:user_id] != @business_card.user_id
-        #     redirect_to user_path(session[:user_id])
-        # end
         @business_card = BusinessCard.find(params[:id])
     end
 
@@ -43,14 +40,6 @@ class BusinessCardsController < ApplicationController
     end
 
     def destroy
-        # if current_user != @business_card.user_id
-        #     redirect_to user_path(session[:user_id])
-        # else
-        #     @business_card.destroy
-        #     redirect_to business_card_path
-        # end
-        # connection.execute("DELETE FROM business_card WHERE business_card.id = ?", params['id'])
-        # @business_card = BusinessCard.find(params[:id]).destroy
         @business_card = BusinessCard.find(params[:id]).destroy
         redirect_to user_path(session[:user_id])    
     end

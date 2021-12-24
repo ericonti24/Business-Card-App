@@ -1,4 +1,10 @@
 <h1>Categories</h1>
+
 <% @categories.each do |c| %>
     <%= c.name %>
+    <h6><% @business_cards.each do |w| %></h6>
+        <% if w.category_id == c.id %>
+        <p><%= w.name %></p>
+        <% end %>
+    <%end%>
 <%end%>

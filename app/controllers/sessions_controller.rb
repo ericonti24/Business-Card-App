@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
 
   def welcome
+    @business_cards = BusinessCard.all
+    @categories = Category.all
   end
 
   def new
