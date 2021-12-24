@@ -1,5 +1,7 @@
 <p>Select a Category </p>
+
 <%= form_for(@business_card) do |f|%> 
+
     <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Select Category' %>  
 
     <p>OR Add A New Category:</p>
