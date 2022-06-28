@@ -1,10 +1,13 @@
-<h1> Business Cards Users Show <%=@user.username%> </h1>
+<h1> Welcome <%=@user.username%>! </h1>
+
+Click the Create Business Card button to create a new business card. 
+<br>
 <%= link_to "Create Business Card", new_business_card_path %>
 
-<h2>Your Business Cards:</h2>
+<h2>Your Business Card(s):</h2>
+You may also edit and delete your cards below. 
 
 <ul>
-    ____________________________
 <% @user.business_cards.each do |b| %>
 <li>
     <h4>Category: <%= b.category.name %> </h4>

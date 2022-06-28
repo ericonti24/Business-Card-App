@@ -1,10 +1,11 @@
 <h1>Categories</h1>
 
 <% @categories.each do |c| %>
-    <%= c.name %>
-    <h6><% @business_cards.each do |w| %></h6>
-        <% if w.category_id == c.id %>
-        <p><%= w.name %></p>
+    <h2><%=  c.name  %>: </h2>
+
+    <h6><% @business_cards.each do |b| %></h6> 
+        <% if b.category_id == c.id %> 
+        <p><%=  link_to b.name, business_card_path(b.id) %></p> 
         <% end %>
-    <%end%>
-<%end%>
+    <%end %> 
+<% end %>

@@ -1,6 +1,6 @@
 <h1>Edit your Business Card</h1>
 
-<%= render partial: 'form'%>
+<%= render 'form'%>
 <br>
 <%= button_to "Delete Card", business_card_path(@business_card.id), method: :delete %>  
 <%# <%= button_to("Delete Card", {:action => 'delete', :id => @business_card.id}) %>  

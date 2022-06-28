@@ -1,5 +1,8 @@
 <h1>Sign up!</h1>
 
+Click on the Google button to sign up with your Google account or create an account below. 
+<%= button_to 'Google', '/auth/google_oauth2' %> 
+<br><br>
 
 <%= form_for(@user) do |f|%>
   <%= f.label :username %>
