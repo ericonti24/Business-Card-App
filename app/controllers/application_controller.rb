@@ -12,10 +12,23 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-        session[:user_id]
+        if(user_id = session[:user_id])
+            @current_user ||= User.find_by(id: user_id)
+        end
     end
 
     def create_session
         session[:user_id] = @user.id 
+    end
+
+    def current_user?(user)
+        user == current_user
+      end
+
+    def correct_user
+        @business_card = BusinessCard.find_by(id: params[:id]) 
+        unless current_user?(@business_card.user)
+          redirect_to user_path(current_user)
+        end
     end
 end

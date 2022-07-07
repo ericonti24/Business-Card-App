@@ -1,5 +1,5 @@
 class BusinessCardsController < ApplicationController
-    before_action :require_login
+    before_action :require_login, :correct_user, only: [:edit, :update, :destroy]
 
     def new
         @business_card = BusinessCard.new
@@ -22,17 +22,16 @@ class BusinessCardsController < ApplicationController
     end
 
     def show 
-        @business_card = BusinessCard.find_by(id: params[:id])
+        get_business_card
     end
 
     def edit 
-        @business_card = BusinessCard.find(params[:id])
+        get_business_card
     end
 
     def update 
-        @business_card = BusinessCard.find(params[:id])
-        
-        if @business_card.update(business_card_params)
+        get_business_card
+        if  @business_card.update(business_card_params)
             redirect_to business_card_path
         else
             render :edit
@@ -40,14 +39,17 @@ class BusinessCardsController < ApplicationController
     end
 
     def destroy
-        @business_card = BusinessCard.find(params[:id]).destroy
+        @business_card = BusinessCard.find_by(id: params[:id]).destroy
         redirect_to user_path(session[:user_id])    
     end
 
     private
 
+    def get_business_card
+        @business_card = BusinessCard.find(params[:id])
+    end
+
     def business_card_params
         params.require(:business_card).permit(:name, :email, :web_site, :phone_number, category_attributes: [:name])
     end
-
 end

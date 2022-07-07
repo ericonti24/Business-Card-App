@@ -1,10 +1,13 @@
-<p>Select a Category </p>
+<%# <p>Select a Category </p> %>
 
-<%= form_for(@business_card) do |f|%> 
+<%= form_for @business_card do |f|%> 
 
-    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Select Category' %>  
+  <%# <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Select Category'%> 
+  <%# <%= f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, include_blank: "Select Category"%>
+  <%# <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true %>
 
-    <p>OR Add A New Category:</p>
+
+  <p>Add a Category:</p>
       <%= f.fields_for :category do |m| %>
           <%= m.text_field :name %>
           <% Category.all.each do |c| %>

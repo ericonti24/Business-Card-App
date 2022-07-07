@@ -1,7 +1,7 @@
 <h1>Categories</h1>
 
 <% @categories.each do |c| %>
-    <h2><%=  c.name  %>: </h2>
+    <h2><%=  c.name  %> </h2>
 
     <h6><% @business_cards.each do |b| %></h6> 
         <% if b.category_id == c.id %> 
