@@ -9,23 +9,23 @@
 
   <p>Add a Category:</p>
       <%= f.fields_for :category do |m| %>
-          <%= m.text_field :name %>
+          <%= m.text_field :name, :required => true %>
           <% Category.all.each do |c| %>
          <option value = "<%= c.name %>"  ></option>
           <% end %>
       <% end %>
       
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :required => true %>
   <br></br>
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email, :required => true %>
   <br></br>
   <%= f.label :web_site %>
-  <%= f.text_field :web_site %>
+  <%= f.text_field :web_site, :required => true %>
   <br></br>
   <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %>
+  <%= f.text_field :phone_number, :required => true %>
   <br></br>
   <%= f.submit "Submit" %>
 <% end %>

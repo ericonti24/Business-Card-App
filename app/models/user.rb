@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :business_cards
+    has_many :categories, through: :business_cards
 
     validates :username, uniqueness: true, presence: true, length: {minimum: 5}
     validates :email, uniqueness: true, presence: true
