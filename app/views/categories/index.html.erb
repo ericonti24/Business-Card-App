@@ -5,7 +5,7 @@
 
     <h6><% @business_cards.each do |b| %></h6> 
         <% if b.category_id == c.id %> 
-        <p><%=  link_to b.name, business_card_path(b.id) %></p> 
+        <p><%=  link_to b.name, category_business_card_path(c.id, b.id) %></p> 
         <% end %>
     <%end %> 
 <% end %>

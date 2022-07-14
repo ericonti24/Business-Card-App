@@ -6,4 +6,6 @@ class Category < ApplicationRecord
 
     scope :filter_duplicates, -> { group(:name).having("count(*) >= 1")}
 
+    
+
 end

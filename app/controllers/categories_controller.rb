@@ -7,7 +7,13 @@ class CategoriesController < ApplicationController
         @categories = Category.all
     end
 
-    # def show 
-    #     @category = Category.find_by(id: params[:id])
-    # end
+    def show 
+        # @categories = Category.find_by(id: params[:id])
+        # @business_cards = @categories.business_cards
+        binding.pry
+        
+        @business_card = BusinessCard.find(params[:id])
+             
+
+    end
 end

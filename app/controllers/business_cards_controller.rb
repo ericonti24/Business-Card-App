@@ -22,7 +22,9 @@ class BusinessCardsController < ApplicationController
     end
 
     def show 
+        # binding.pry
         get_business_card
+        # @categories = @business_cards.categories
     end
 
     def edit 

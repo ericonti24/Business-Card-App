@@ -1,0 +1,19 @@
+<h1>Welcome to the Virtual Business Card</h1>
+
+<h3>All Business Cards</h3>
+<ul>
+<% @business_cards.desending.each do |b| %>
+  <li>
+    <h4>Category: <%= b.category.name %> </h4>
+    <%= b.name %> 
+    <br>
+    <%= b.email %>
+    <br>
+    <%= b.web_site %> 
+    <br> 
+    <%= b.phone_number %>
+    <br>
+  </li>
+  ____________________________
+<%end%>
+</ul>
